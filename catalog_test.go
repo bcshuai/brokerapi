@@ -3,7 +3,7 @@ package brokerapi_test
 import (
 	"encoding/json"
 
-	"github.com/pivotal-cf/brokerapi"
+	"github.com/bcshuai/brokerapi"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
@@ -19,7 +19,7 @@ var _ = Describe("Catalog", func() {
 					Description:   "A Cassandra Plan",
 					Bindable:      true,
 					Plans:         []brokerapi.ServicePlan{},
-					Metadata:      &brokerapi.ServiceMetadata{},
+					Metadata:       brokerapi.ServiceMetadata{},
 					Tags:          []string{"test"},
 					PlanUpdatable: true,
 					DashboardClient: &brokerapi.ServiceDashboardClient{

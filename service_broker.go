@@ -3,7 +3,7 @@ package brokerapi
 import "errors"
 
 type ServiceBroker interface {
-	Services() []Service
+	Services() []IMetadataProvider
 
 	Provision(instanceID string, details ProvisionDetails, asyncAllowed bool) (ProvisionedServiceSpec, error)
 	Deprovision(instanceID string, details DeprovisionDetails, asyncAllowed bool) (IsAsync, error)

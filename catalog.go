@@ -1,5 +1,12 @@
 package brokerapi
 
+type IMetadataProvider interface {
+	ProvideMetadata() IMetadata
+}
+type IMetadata interface {
+	metadata()
+}
+
 type Service struct {
 	ID              string                  `json:"id"`
 	Name            string                  `json:"name"`
@@ -9,8 +16,11 @@ type Service struct {
 	PlanUpdatable   bool                    `json:"plan_updateable"`
 	Plans           []ServicePlan           `json:"plans"`
 	Requires        []RequiredPermission    `json:"requires,omitempty"`
-	Metadata        *ServiceMetadata        `json:"metadata,omitempty"`
+	Metadata        IMetadata               `json:"metadata,omitempty"`   //ServicePlanMetadata
 	DashboardClient *ServiceDashboardClient `json:"dashboard_client,omitempty"`
+}
+func (service Service) ProvideMetadata() IMetadata{
+	return service.Metadata
 }
 
 type ServiceDashboardClient struct {
@@ -24,13 +34,19 @@ type ServicePlan struct {
 	Name        string               `json:"name"`
 	Description string               `json:"description"`
 	Free        *bool                `json:"free,omitempty"`
-	Metadata    *ServicePlanMetadata `json:"metadata,omitempty"`
+	Metadata    IMetadata `json:"metadata,omitempty"`    //ServicePlanMetadata
+}
+func (plan ServicePlan) ProvideMetadata() IMetadata {
+	return plan.Metadata
 }
 
 type ServicePlanMetadata struct {
 	DisplayName string        `json:"displayName,omitempty"`
 	Bullets     []string      `json:"bullets,omitempty"`
 	Costs       []ServiceCost `json:"costs,omitempty"`
+}
+func (planMetaData ServicePlanMetadata) metadata() {
+
 }
 
 type ServiceCost struct {
@@ -46,6 +62,7 @@ type ServiceMetadata struct {
 	DocumentationUrl    string `json:"documentationUrl,omitempty"`
 	SupportUrl          string `json:"supportUrl,omitempty"`
 }
+func (serviceMetadata ServiceMetadata) metadata() {}
 
 func FreeValue(v bool) *bool {
 	return &v

@@ -8,7 +8,7 @@ type ErrorResponse struct {
 }
 
 type CatalogResponse struct {
-	Services []Service `json:"services"`
+	Services []IMetadataProvider `json:"services"`
 }
 
 type ProvisioningResponse struct {
