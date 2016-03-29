@@ -1,6 +1,7 @@
 {
 	"ImportPath": "github.com/pivotal-cf/brokerapi",
 	"GoVersion": "go1.5",
+	"GodepVersion": "v60",
 	"Packages": [
 		"./..."
 	],
