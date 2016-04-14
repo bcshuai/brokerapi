@@ -9,8 +9,8 @@ import (
 	"net/http/httptest"
 	"strings"
 
-	"github.com/pivotal-cf/brokerapi"
-	"github.com/pivotal-cf/brokerapi/fakes"
+	"github.com/bcshuai/brokerapi"
+	"github.com/bcshuai/brokerapi/fakes"
 
 	"github.com/drewolson/testflight"
 	. "github.com/onsi/ginkgo"

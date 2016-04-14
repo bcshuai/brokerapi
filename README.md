@@ -21,7 +21,7 @@ e.g.
 package main
 
 import (
-    "github.com/pivotal-cf/brokerapi"
+    "github.com/bcshuai/brokerapi"
     "github.com/pivotal-golang/lager"
 )
 
@@ -100,9 +100,9 @@ ErrAsyncRequired
 
 ## Change Notes
 
-* [724bdb1](https://github.com/pivotal-cf/brokerapi/commit/724bdb1cef1795fdda005e1277b364694047c5ce)
+* [724bdb1](https://github.com/bcshuai/brokerapi/commit/724bdb1cef1795fdda005e1277b364694047c5ce)
 adds a new parameter and return type to `Provision` method of `ServiceBroker` to support
 asynchronous provisioning. Also adds `LastOperation` method for the same purpose.
-* [d97ebdd](https://github.com/pivotal-cf/brokerapi/commit/d97ebddb70b3f099ec931e23a37bc70e82efb827) adds a new map property to the `brokerapi.BindDetails` struct in order to support arbitrary bind parameters. This allows API clients to send configuration parameters with their bind request.
-* Starting with [10997ba](https://github.com/pivotal-cf/brokerapi/commit/10997baae7e5a4f1bc8db90afe402d509744ec48) the `Bind` function now takes an additional input parameter of type `brokerapi.BindDetails`. The corresponding struct specifies bind-specific properties sent by the CF API client.
-* [8d9dd34](https://github.com/pivotal-cf/brokerapi/commit/8d9dd345ddd00d70c9aeaafb06ad3bed2213e0ea) adds support for arbitrary provision parameters. The broker can access the `Parameters` map in `brokerapi.ProvisionDetails` to lookup any configuration parameters sent by the client as part of their provision request.
+* [d97ebdd](https://github.com/bcshuai/brokerapi/commit/d97ebddb70b3f099ec931e23a37bc70e82efb827) adds a new map property to the `brokerapi.BindDetails` struct in order to support arbitrary bind parameters. This allows API clients to send configuration parameters with their bind request.
+* Starting with [10997ba](https://github.com/bcshuai/brokerapi/commit/10997baae7e5a4f1bc8db90afe402d509744ec48) the `Bind` function now takes an additional input parameter of type `brokerapi.BindDetails`. The corresponding struct specifies bind-specific properties sent by the CF API client.
+* [8d9dd34](https://github.com/bcshuai/brokerapi/commit/8d9dd345ddd00d70c9aeaafb06ad3bed2213e0ea) adds support for arbitrary provision parameters. The broker can access the `Parameters` map in `brokerapi.ProvisionDetails` to lookup any configuration parameters sent by the client as part of their provision request.

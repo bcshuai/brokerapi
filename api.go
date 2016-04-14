@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/gorilla/mux"
-	"github.com/pivotal-cf/brokerapi/auth"
+	"github.com/bcshuai/brokerapi/auth"
 	"github.com/pivotal-golang/lager"
 )
 

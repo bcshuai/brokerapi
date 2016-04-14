@@ -1,6 +1,6 @@
 package fakes
 
-import "github.com/pivotal-cf/brokerapi"
+import "github.com/bcshuai/brokerapi"
 
 type FakeServiceBroker struct {
 	ProvisionDetails   brokerapi.ProvisionDetails
@@ -45,10 +45,10 @@ type FakeAsyncOnlyServiceBroker struct {
 	FakeServiceBroker
 }
 
-func (fakeBroker *FakeServiceBroker) Services() []brokerapi.Service {
+func (fakeBroker *FakeServiceBroker) Services() []brokerapi.IMetadataProvider {
 	fakeBroker.BrokerCalled = true
 
-	return []brokerapi.Service{
+	return []brokerapi.IMetadataProvider{
 		brokerapi.Service{
 			ID:            "0A789746-596F-4CEA-BFAC-A0795DA056E3",
 			Name:          "p-cassandra",
