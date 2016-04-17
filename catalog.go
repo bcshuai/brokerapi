@@ -14,7 +14,7 @@ type Service struct {
 	Bindable        bool                    `json:"bindable"`
 	Tags            []string                `json:"tags,omitempty"`
 	PlanUpdatable   bool                    `json:"plan_updateable"`
-	Plans           []ServicePlan           `json:"plans"`
+	Plans           []IMetadataProvider     `json:"plans"`   //ServicePlan
 	Requires        []RequiredPermission    `json:"requires,omitempty"`
 	Metadata        IMetadata               `json:"metadata,omitempty"`   //ServicePlanMetadata
 	DashboardClient *ServiceDashboardClient `json:"dashboard_client,omitempty"`
